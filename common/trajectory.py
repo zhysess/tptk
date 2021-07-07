@@ -171,7 +171,7 @@ def parse_traj_file(input_path, traj_type='raw', extra_fields=None):
         pt_list = []
         tid = None
         for line in f.readlines():
-            attrs = line.rstrip().split(',')
+            attrs = line.rstrip().split(',')  # rstrip()删除字符串结尾的空格
             if attrs[0] == '#':
                 if len(pt_list) != 0:
                     traj = Trajectory(oid, tid, pt_list)

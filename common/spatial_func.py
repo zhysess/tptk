@@ -38,8 +38,8 @@ def bearing(a, b):
     pt_b_lng_rad = math.radians(b.lng)
     y = math.sin(pt_b_lng_rad - pt_a_lng_rad) * math.cos(pt_b_lat_rad)
     x = math.cos(pt_a_lat_rad) * math.sin(pt_b_lat_rad) - math.sin(pt_a_lat_rad) * math.cos(pt_b_lat_rad) * math.cos(pt_b_lng_rad - pt_a_lng_rad)
-    bearing_rad = math.atan2(y, x)
-    return math.fmod(math.degrees(bearing_rad) + 360.0, 360.0)
+    bearing_rad = math.atan2(y, x)  # 返回从原点(0,0)到(x,y)点的线段与x轴正方向之间的平面角度(弧度值)
+    return math.fmod(math.degrees(bearing_rad) + 360.0, 360.0)  # 取余
 
 
 def project_pt_to_segment(a, b, t):
